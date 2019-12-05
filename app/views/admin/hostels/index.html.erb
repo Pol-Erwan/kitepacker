@@ -1,0 +1,54 @@
+<div class="container align-items-center row mx-auto" style="margin-top: 120px; align-content:center;" >
+  <div style="vertical-align: middle;">
+  <a href="<%= admin_root_path %>" class=" pull-left btn btn-danger btn-just-icon">
+    <i class="fas fa-arrow-left fa-2x"></i>
+  </a>
+  </div>
+  <div class="card mx-auto" style="width: 20rem;">
+  <div class="card-body">
+    <p><i class="fas fa-users fa-3x mx-3"></i>Hotel actuel : <%= @hostels.count %></p>
+  </div>
+</div>
+<div class="align-text">
+<a href="<%= new_admin_hostel_path %>" class=" pull-right btn btn-success btn-round">
+   <i class="fas fa-user fa-2x mr-2"></i> Nouvel hotel
+</a>
+</div>
+</div>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Ville</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Nb de lit</th>
+      <th scope="col">Prix €</th>
+      <th scope="col">Date de creation</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<%  @hostels.each_with_index do |t,index| %>
+    <tr>
+      <th scope="row"><% index %></th>
+      <td><%= t.id %></td>
+      <td><%= t.name %></td>
+      <td><%= t.city %></td>
+      <td><%= t.address %></td>
+      <td><%= t.zip_code %></td>
+      <td><%= t.bed_number %></td>
+      <td><%= t.price %></td>
+      <td><%= t.created_at %></td>
+      <td><%= link_to "Modifier", edit_admin_hostel_path(t), class:"btn btn-primary" %></td>
+      <td><%= link_to "Supprimer", admin_hostel_path(t.id), class:"btn btn-danger", method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

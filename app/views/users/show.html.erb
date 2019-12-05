@@ -1,0 +1,179 @@
+<style>
+
+.jumbotron {
+  background-image : url('https://cdn.pixabay.com/photo/2018/12/05/13/04/kite-surfing-3857698_960_720.jpg');
+  image-repeat:no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
+  background-position:center;
+  padding-bottom:22rem;
+}
+
+</style>
+
+<div class="jumbotron" >
+
+</div>
+
+
+  <div class="container" style="margin-top:-12rem;">
+    <div class=" card card-profile shadow" >
+      <div class="px-4">
+        <div class="row justify-content-center" >
+
+          <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+
+	      <%if @user.avatar.attached?%>
+          <%= image_tag @user.avatar, alt: 'avatar', class:"rounded-circle", style:"width:60%;"%>
+        <%else%>
+              <a href="#">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDh8y1VQVinjPy8bWI5NpgrpdVMb8pR9a52in-fdo7ybyOapWu&s" class="rounded-circle" style="margin-top:-6rem;">
+              </a>
+
+	       <%end%>
+            </div>
+          </div>
+
+          <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+            <div class="card-profile-actions py-4 mt-lg-0">
+              <a href="#" class="btn btn-sm btn-info mr-4">Modifier Profil</a>
+              <a href="#" class="btn btn-sm btn-default float-right">Modifier MDP</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 order-lg-1">
+            <div class="card-profile-actions py-4 mt-lg-0">
+              <a href="#booking" class="btn btn-sm btn-info mr-4 mt-4">Mes réservations</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center my-5">
+          <h3><%= @user.first_name %> <%= @user.last_name %> </h3><br>
+          <div class="h6 font-weight-300"><%= @user.email %></div>
+          <div class="h6 font-weight-300"><i class="ni location_pin mr-2"><small>Membre depuis le <%= @user.created_at %></small></i></div>
+        </div>
+
+
+
+  <div class="nav-tabs-navigation pb-2">
+    <div class="nav-tabs-wrapper">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Historique de mes réservations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#following" role="tab">Mes options</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Tab panes -->
+      <div class="tab-content following">
+        <div class="tab-pane active" id="follows" role="tabpanel">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+              <ul class="list-unstyled follows"  style="padding-bottom:4rem;">
+
+                <% @booking.each do |t| %>
+
+                  <li>
+                    <div class="row max-auto align-items-center">
+
+                        <div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
+                          <img src="https://vignette.wikia.nocookie.net/lego/images/1/1f/Friendscat.jpg/revision/latest?cb=20120117181029" alt="Circle Image" class="img-circle img-no-padding img-responsive" >
+                        </div>
+                        <div class="col-lg-7 col-md-4 col-4 " style="text-align:left;">
+                          <h6><%= t.hostel.name%> </h6><br>
+                          <p style="font-size:12px;"><i class="far fa-clock" style="color:green;"></i>  <%= t.start_date %> <i class="far fa-clock pl-2" style="color:red;"></i>    <%= t.end_date %></p>
+                          <p class="text-muted pb-2 pr-2"><i class="fas fa-map-marker-alt pr-2"></i> <%=t.hostel.city %> <i class="fas fa-bed px-2"></i><%= t.bed_booked%> </p>
+                        </div>
+
+                    </div>
+                  </li>
+
+                  <div >
+                    <p id="show-more"> + </p>
+                    <p id="informations" class="collapse" style="text-align:left;"> kzhrzkerhjkzehrzjerh </p>
+                  </div>
+
+                  <hr>
+
+                  <%end%>
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="tab-pane text-center" id="following" role="tabpanel"  style="padding-bottom:4rem;">
+
+          <button class="btn btn-warning btn-round"><a href="<%= edit_user_registration_path %>">Edit profil</a></button>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+        <div class="mt-5 py-5 border-top text-center" id="booking">
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+
+
+              <h3>Mes réservations</h3>
+
+
+              <div class="container">
+
+                <div class="row">
+
+                  <% @booking.each do |t| %>
+
+
+                  <div class="card col-md-4 col-sm-6 portfolio-item mx-4">
+                    <img class="img-fluid" src="https://images.pexels.com/photos/812958/pexels-photo-812958.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                    <div class="portfolio-caption pt-4">
+                      <p style="font-size:12px;"><i class="far fa-clock" style="color:green;"></i>  <%= t.start_date %> <i class="far fa-clock pl-2" style="color:red;"></i>    <%= t.end_date %></p>
+                      <p class="text-muted pb-2"><i class="fas fa-map-marker-alt px-2"></i> <%= t.hostel.name%> <i class="fas fa-bed px-2"></i><%= t.bed_booked%> </p>
+                    </div>
+                  </div>
+
+                  <%end%>
+
+                </div>
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+  <script>
+
+      console.log("coucou")
+
+      var info = document.getElementById("informations");
+      var btn = document.getElementById("show-more");
+
+      console.log(info)
+      console.log(btn)
+
+      function Click() {
+        info.classList.toggle("collapse");
+      }
+
+      btn.addEventListener("click",Click);
+
+  </script>

@@ -1,0 +1,41 @@
+<body>
+  <div class="container card card-body" style="padding-bottom:40px; border-radius:20px; background-color:white; opacity:96%; margin-top:80px; margin-bottom:80px;">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="title"> Ajouter un hotel</h2>
+            <%= form_tag url_for(action: 'create'), method: 'post' do %>
+
+            <%= label_tag "Image de l'hotel" %><br />
+            <%= file_field_tag :avatar %>
+            <br /> <br />
+
+            <%= label_tag "Nom de l'hotel" %>
+            <%= text_field_tag 'name', @hostel.name, class: "form-control" %>
+            <br /> <br />
+
+            <%= label_tag 'Ville' %>
+            <%= text_field_tag 'city', @hostel.city, class: "form-control" %>
+            <br /> <br />
+
+            <%= label_tag 'Adresse' %>
+            <%= text_field_tag 'address', @hostel.address, class: "form-control" %>
+            <br /> <br />
+
+            <%= label_tag 'Code Postal' %>
+            <%= text_field_tag 'zip_code', @hostel.zip_code, class: "form-control"%>
+            <br /> <br />
+
+            <%= label_tag 'Nombre de places' %>
+            <%= text_field_tag 'bed_number', @hostel.bed_number, class: "form-control"%>
+            <br /> <br />
+
+            <%= label_tag 'Prix' %>
+            <%= text_field_tag 'price', @hostel.price, class: "form-control"%>
+            <br /> <br />
+
+              <center><%= submit_tag "Creer l'hotel", class:"btn btn-outline-primary" %></center>
+            <% end %>
+          </div>
+        </div>
+      </div>
+</body>

@@ -1,0 +1,69 @@
+
+<section class="section section-shaped section-lg" >
+  <div class="shape shape-style-1 " style="background-image: url(https://cdn.pixabay.com/photo/2016/11/29/03/27/action-1867052_960_720.jpg); background-size:cover; background-position:center; filter: opacity(60%);">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="container pt-lg-md" style="margin-top:-8rem;">
+    <div class="row justify-content-start">
+      <div class="col-lg-5">
+        <div class="card bg-secondary shadow border-0" style="width:120%; border-radius:20px;">
+
+          <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
+              <h4 class="h3 mb-3 mt-4 font-weight-normal text-center" style="font-size:38px;">S'inscrire</h4>
+              <hr style="width:80%;">
+                <%= devise_error_messages! %>
+                <div class="mx-auto pb-3" style="width:80%;">
+
+                    <div class="container row " style="margin-left:-30px;">
+
+                        <div class="field col-6 form-group" >
+                          <%= f.label :Prénom %><br />
+                          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control"  %>
+                        </div>
+
+                        <div class="field col-6 form-group" >
+                          <%= f.label :Nom %><br />
+                          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control"  %>
+                        </div>
+
+                    </div>
+
+                        <div class="form-group">
+                          <%= f.label :email, "Email" %><br />
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                          <%= f.label :Mot_de_passe %>
+                          <% if @minimum_password_length %>
+                          <em><small>(<%= @minimum_password_length %> caractères min.)</small></em>
+                          <% end %><br />
+                          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                          <%= f.label :Confirmation_du_mot_de_passe %><br />
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                        </div>
+
+                        <div class="actions mt-5">
+                          <%= f.submit "Sign up", class:"btn btn-success btn-block btn-round" %>
+                        </div>
+                        <br>
+                      <% end %>
+                      <%= render "devise/shared/links" %>
+
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+</section>

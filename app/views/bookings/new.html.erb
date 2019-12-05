@@ -1,0 +1,45 @@
+<%= form_with url: bookings_path, class:'container' do |form| %>
+
+	<div class="form-style-8">
+	  <h2>Reservation hotel </h2>
+	  <div>
+			<%= form.label "Date de début"%>
+			<%= form.date_field :start_date %>
+			<%= form.label "Date de fin"%>
+			<%= form.date_field :end_date %>
+			<%= form.label 'Pention/Demie-pension'%>
+			<%= form.check_box :full_board%>
+
+			<% if params[:hostels_id] == nil%>
+				<div>Aucun hotel choisi</div>
+			<%else%>
+				<div>Vous avez choisi l'hotel : <%= @hostel.name%> Adressse hotel : <%= @hostel.address%></div>
+			<%end%>
+			<%= link_to "Liste Hotel", root_path(anchor: "destinations"), class:'btn btn-primary'%>
+
+	  </div>
+	</div>
+
+	<div class="form-style-8">
+	  <h2>Leçon : </h2>
+	  <div>
+		<%= form.label "Date de début option"%>
+		<%= form.date_field :start_date_option %>
+		<%= form.label "Date de fin option"%>
+		<%= form.date_field :end_date_option %>
+	  </div>
+	</div>
+
+	<div class="form-style-8">
+	  <h2>Location matériel :</h2>
+	  <div>
+	  	<%= form.label "Location de matériel"%>
+		<%= form.check_box :location_item%>
+	  </div>
+	</div>
+	<% if @hostel != nil%>
+		<%=hidden_field_tag "hostel", @hostel.id%>
+	<%end%>
+	<%= form.submit "Valider"%>
+
+<% end %>

@@ -1,0 +1,51 @@
+
+<div class="container text-center" style= "margin-top: 120px;">
+  <h3 class="title">Bienvenue <!-- current_user.first_name --></h3>
+  <p class="description">Que veux-tu faire ?</p>
+</div>
+<br><br><br>
+<div class="container">
+<div class="card-deck mx-auto" style="width: 30rem;">
+<div class="card text-center" style="">
+  <div class="card-body">
+    <h4 class="card-title">Users</h4>
+    <br>
+    <a href="<%= admin_users_path %>" class="btn btn-primary btn-just-icon">
+      <i class="fas fa-user"></i>
+    </a>
+  </div>
+</div>
+<div class="card text-center" style="">
+  <div class="card-body">
+    <h4 class="card-title">Reservations</h4>
+    <br>
+    <a href="<%= admin_bookings_path %>" class="btn btn-primary btn-just-icon">
+      <i class="fas fa-cat"></i>
+    </a>
+  </div>
+</div>
+</div>
+<br><br>
+<div class="card-deck mx-auto" style="width: 30rem;">
+
+<div class="card text-center" style="">
+  <div class="card-body">
+    <h4 class="card-title">Hotels</h4>
+    <br>
+    <a href="<%= admin_hostels_path %>" class="btn btn-danger btn-just-icon">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+</div>
+<div class="card text-center" style="">
+  <div class="card-body">
+    <h4 class="card-title">Orders</h4>
+    <br>
+    <a href="<%= admin_orders_path %>" class="btn btn-primary btn-just-icon">
+      <i class="fab fa-cc-visa"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<br><br><br>

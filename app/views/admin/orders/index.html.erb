@@ -1,0 +1,51 @@
+<div class="container align-items-center row mx-auto" style="margin-top: 120px; align-content:center;" >
+  <div style="vertical-align: middle;">
+    <a href="<%= admin_root_path %>" class=" pull-left btn btn-danger btn-just-icon">
+      <i class="fas fa-arrow-left fa-2x"></i>
+    </a>
+  </div>
+  <div class="card mx-auto" style="width: 20rem;">
+    <div class="card-body">
+      <p><i class="fab fa-cc-visa fa-3x mx-3"></i>Orders actuel : <%= @orders.count %></p>
+    </div>
+  </div>
+  <div style="vertical-align: middle;">
+    <%if @orders.count != 0 %>
+
+      <% @final_price = 0 %>
+      <% @orders.each do |t| %>
+        <% @final_price += t.final_price.to_i %>
+      <%end%>
+        <p> <strong> CA :</strong> <%= @final_price %>€ </p>
+        <p> <strong> Panier Moyen : </strong> <%= @final_price/@orders.count%>€</p>
+
+    <%end%>
+  </div>
+
+</div>
+<br>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Date de creation</th>
+      <th scope="col">Reservations ID</th>
+      <th scope="col">Prix Final</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<%  @orders.each_with_index do |t,index| %>
+    <tr>
+      <th scope="row"><% index %></th>
+      <td><%= t.id %></td>
+      <td><%= t.created_at %></td>
+      <td><%= t.booking_id %></td>
+      <td><%= t.final_price %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
