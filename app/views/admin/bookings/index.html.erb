@@ -6,13 +6,8 @@
   </div>
   <div class="card mx-auto" style="width: 20rem;">
   <div class="card-body">
-    <p><i class="fas fa-users fa-3x mx-3"></i>Reservations actuel : <%= @bookings.count %></p>
+    <p><i class="fas fa-poll fa-3x mr-3"></i>Reservations actuel : <%= @bookings.count %></p>
   </div>
-</div>
-<div class="align-text">
-<a href="#" class=" pull-right btn btn-success btn-round">
-   <i class="fas fa-user fa-2x mr-2"></i> Nouvel reservation
-</a>
 </div>
 </div>
 <br>
@@ -25,6 +20,7 @@
       <th scope="col">Pension complète</th>
       <th scope="col">Date de depart</th>
       <th scope="col">Date de fin</th>
+      <th scope="col">Location materiels</th>
       <th scope="col">Places reservée</th>
       <th scope="col">User ID</th>
       <th scope="col">Hotel ID</th>
@@ -42,6 +38,7 @@
       <td><%= t.full_board %></td>
       <td><%= t.start_date %></td>
       <td><%= t.end_date %></td>
+      <td><%= t.location_item %></td>
       <td><%= t.bed_booked %></td>
       <td><%= t.user_id %></td>
       <td><%= t.hostel_id %></td>

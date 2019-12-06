@@ -3,10 +3,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h2 class="title"> Creer un utilisateur</h2>
-            <%= form_tag url_for(action: 'create'), method: 'post' do %>
-              <%= label_tag "Image de l'utilisateur" %><br />
-              <%= file_field_tag :avatar %>
-              <br /> <br />
+            <%= form_tag url_for(action: 'create'), method: 'post' do %>              
               <%= label_tag 'Prenom' %>
               <%= text_field_tag 'first_name', @user.first_name, class: "form-control" %>
               <br /> <br />

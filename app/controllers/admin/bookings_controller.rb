@@ -9,8 +9,7 @@ class Admin::BookingsController < Admin::BasesController
 
   def update
     @booking = Booking.find(params[:id])
-      @booking.avatar.attach(params[:avatar])
-      if @booking.update(full_board: params[:full_board], start_date: params[:start_date], end_date: params[:end_date], bed_booked: params[:bed_booked], user_id: params[:user_id], hostel_id: params[:hostel_id], option_id: params[:option_id])
+      if @booking.update(location_item: verif_checkbox(params[:location_item]), full_board: verif_checkbox(params[:full_board]), start_date: params[:start_date], end_date: params[:end_date], bed_booked: params[:bed_booked])
         flash[:success] = "La reservation a bien etait modifier !"
         redirect_to admin_bookings_path
       else
@@ -20,10 +19,26 @@ class Admin::BookingsController < Admin::BasesController
 
   def destroy
       @booking = Booking.find(params[:id])
+    if Order.find_by(booking_id: @booking.id) != nil
       @order = Order.find_by(booking_id: @booking.id)
       @order.delete
       @booking.delete
+    else
+      @booking.delete
+    end
       flash[:sucess] = "L'hotel a bien etait supprimer !"
       redirect_to admin_bookings_path
     end
+
+private
+
+def verif_checkbox(params)
+
+  if params == nil
+    return false
+  else
+    return true
+  end
+
+end
 end
