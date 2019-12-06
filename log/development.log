@@ -28994,3 +28994,127 @@ Processing by ActiveStorage::DiskController#show as JPEG
 Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
 
 
+Started GET "/users/32" for ::1 at 2019-12-06 16:05:57 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (0.7ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 239ms (Views: 154.0ms | ActiveRecord: 49.2ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9d89efd61f3c1d64c1b9f3c7acc39a64f0f67ea8/Prosurfer.jpg" for ::1 at 2019-12-06 16:05:58 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9d89efd61f3c1d64c1b9f3c7acc39a64f0f67ea8", "filename"=>"Prosurfer"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: 7wVDYnbH9Dm5LWMUhgfUNKFw (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE1OjEwOjU4LjQ2NFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c7075913eb91a6c488e8829d5dc8567fb3d8792c/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE1OjEwOjU4LjQ2NFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c7075913eb91a6c488e8829d5dc8567fb3d8792c/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE1OjEwOjU4LjQ2NFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c7075913eb91a6c488e8829d5dc8567fb3d8792c/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg" for ::1 at 2019-12-06 16:05:58 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Prosurfer.jpg\"; filename*=UTF-8''Prosurfer.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE1OjEwOjU4LjQ2NFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c7075913eb91a6c488e8829d5dc8567fb3d8792c", "filename"=>"Prosurfer"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 16:06:08 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"waT74eHWZpnPaoBP/HQk61NNDKV0HEHth/KTL/loO6y3AbXnIFIfgMwcv2otluXhtGlL1rVXHoX0jUT9PyZ0LQ==", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007f93ac900910 @tempfile=#<Tempfile:/var/folders/c6/8n0z3ts954z7jvpzhmnvpjv00000gp/T/RackMultipart20191206-13477-nr0l30.png>, @original_filename="mathieulego_opt.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"avatar\"; filename=\"mathieulego_opt.png\"\r\nContent-Type: image/png\r\n">, "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:4
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:5
+[36m  Disk Storage (2.4ms) [0m[32mUploaded file to key: 7UQEPUCy47a4eRSUgYquCsex (checksum: CeH0k6gCggYO8ByugehjPg==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[36mActiveStorage::Blob Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "7UQEPUCy47a4eRSUgYquCsex"], ["filename", "mathieulego_opt.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 37637], ["checksum", "CeH0k6gCggYO8ByugehjPg=="], ["created_at", "2019-12-06 15:06:08.452186"]]
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[36mActiveStorage::Attachment Destroy (1.0ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[36mActiveStorage::Attachment Create (2.0ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 32], ["blob_id", 5], ["created_at", "2019-12-06 15:06:08.475181"]]
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2019-12-06 15:06:08.479297"], ["id", 32]]
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/avatars_controller.rb:5
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: a17511df-08a5-4785-a9c7-0b3af5868db9) to Async(default) with arguments: #<GlobalID:0x00007f93ac881480 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/5>>
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 8da4825a-cb42-483e-894b-888f80314b13) to Async(default) with arguments: #<GlobalID:0x00007f93ac86b2e8 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/4>>
+Redirected to http://localhost:3000/users/32
+Completed 302 Found in 56ms (ActiveRecord: 19.6ms)
+
+
+Started GET "/users/32" for ::1 at 2019-12-06 16:06:08 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Blob Load (3.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9] Performing ActiveStorage::AnalyzeJob (Job ID: a17511df-08a5-4785-a9c7-0b3af5868db9) from Async(default) with arguments: #<GlobalID:0x00007f93aba03048 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/5>>
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9] [36m  Disk Storage (0.6ms) [0m[34mDownloaded file from key: 7UQEPUCy47a4eRSUgYquCsex[0m
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  ↳ app/views/users/show.html.erb:27
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13] Performing ActiveStorage::PurgeJob (Job ID: 8da4825a-cb42-483e-894b-888f80314b13) from Async(default) with arguments: #<GlobalID:0x00007f93aaa8aeb8 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9]   [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBooking Load (2.9ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  ↳ app/views/users/show.html.erb:77
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9]   [1m[36mActiveStorage::Blob Update (1.0ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendered users/show.html.erb within layouts/application (22.6ms)
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   [1m[36mActiveStorage::Attachment Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9]   [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a17511df-08a5-4785-a9c7-0b3af5868db9] Performed ActiveStorage::AnalyzeJob (Job ID: a17511df-08a5-4785-a9c7-0b3af5868db9) from Async(default) in 25.99ms
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   [1m[36mActiveStorage::Blob Destroy (1.9ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 4]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13] [36m  Disk Storage (0.6ms) [0m[31mDeleted file from key: 7wVDYnbH9Dm5LWMUhgfUNKFw[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/7wVDYnbH9Dm5LWMUhgfUNKFw/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [8da4825a-cb42-483e-894b-888f80314b13] Performed ActiveStorage::PurgeJob (Job ID: 8da4825a-cb42-483e-894b-888f80314b13) from Async(default) in 30.72ms
+Completed 200 OK in 147ms (Views: 134.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--eb7c50f3185627b01fd9cdca80a418dfa8405ba6/mathieulego_opt.png" for ::1 at 2019-12-06 16:06:08 +0100
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--eb7c50f3185627b01fd9cdca80a418dfa8405ba6", "filename"=>"mathieulego_opt"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: 7UQEPUCy47a4eRSUgYquCsex (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROMVZSUlZCVlEzazBOMkUwWlZKVFZXZFpjWFZEYzJWNEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSlJhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGliV0YwYUdsbGRXeGxaMjlmYjNCMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuYldGMGFHbGxkV3hsWjI5ZmIzQjBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE9IiwiZXhwIjoiMjAxOS0xMi0wNlQxNToxMTowOC43MTdaIiwicHVyIjoiYmxvYl9rZXkifX0=--12b4798f3842ee3c72212227acd683ef77368c5d/mathieulego_opt.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22mathieulego_opt.png%22%3B+filename%2A%3DUTF-8%27%27mathieulego_opt.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROMVZSUlZCVlEzazBOMkUwWlZKVFZXZFpjWFZEYzJWNEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSlJhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGliV0YwYUdsbGRXeGxaMjlmYjNCMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuYldGMGFHbGxkV3hsWjI5ZmIzQjBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE9IiwiZXhwIjoiMjAxOS0xMi0wNlQxNToxMTowOC43MTdaIiwicHVyIjoiYmxvYl9rZXkifX0=--12b4798f3842ee3c72212227acd683ef77368c5d/mathieulego_opt.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22mathieulego_opt.png%22%3B+filename%2A%3DUTF-8%27%27mathieulego_opt.png
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROMVZSUlZCVlEzazBOMkUwWlZKVFZXZFpjWFZEYzJWNEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSlJhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGliV0YwYUdsbGRXeGxaMjlmYjNCMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuYldGMGFHbGxkV3hsWjI5ZmIzQjBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE9IiwiZXhwIjoiMjAxOS0xMi0wNlQxNToxMTowOC43MTdaIiwicHVyIjoiYmxvYl9rZXkifX0=--12b4798f3842ee3c72212227acd683ef77368c5d/mathieulego_opt.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22mathieulego_opt.png%22%3B+filename%2A%3DUTF-8%27%27mathieulego_opt.png" for ::1 at 2019-12-06 16:06:08 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"mathieulego_opt.png\"; filename*=UTF-8''mathieulego_opt.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROMVZSUlZCVlEzazBOMkUwWlZKVFZXZFpjWFZEYzJWNEJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSlJhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGliV0YwYUdsbGRXeGxaMjlmYjNCMExuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuYldGMGFHbGxkV3hsWjI5ZmIzQjBMbkJ1WndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURtbHRZV2RsTDNCdVp3WTdCbFE9IiwiZXhwIjoiMjAxOS0xMi0wNlQxNToxMTowOC43MTdaIiwicHVyIjoiYmxvYl9rZXkifX0=--12b4798f3842ee3c72212227acd683ef77368c5d", "filename"=>"mathieulego_opt"}
+Completed 200 OK in 4ms (ActiveRecord: 0.0ms)
+
+
