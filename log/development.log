@@ -28466,3 +28466,531 @@ Completed 200 OK in 207ms (Views: 195.4ms | ActiveRecord: 4.6ms)
 Completed 200 OK in 848ms (Views: 814.2ms | ActiveRecord: 12.4ms)
 
 
+Started GET "/users/32" for ::1 at 2019-12-06 15:01:09 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (6.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (1.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (105.9ms)
+Completed 200 OK in 429ms (Views: 219.6ms | ActiveRecord: 38.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7358c111b42eb06f6d355eaa6140e54ae7f4a4c4/Prosurfer.jpg" for ::1 at 2019-12-06 15:01:09 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7358c111b42eb06f6d355eaa6140e54ae7f4a4c4", "filename"=>"Prosurfer"}
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (420.7ms) [0m[34mGenerated URL for file at key: B17iwREu6eKfiEa2F7RSL3dj (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRRakUzYVhkU1JYVTJaVXRtYVVWaE1rWTNVbE5NTTJScUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjA2OjEwLjUyNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7fc95971ddb523433ff49a3f6da573918dfa7e6/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRRakUzYVhkU1JYVTJaVXRtYVVWaE1rWTNVbE5NTTJScUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjA2OjEwLjUyNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7fc95971ddb523433ff49a3f6da573918dfa7e6/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg
+Completed 302 Found in 435ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRRakUzYVhkU1JYVTJaVXRtYVVWaE1rWTNVbE5NTTJScUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjA2OjEwLjUyNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7fc95971ddb523433ff49a3f6da573918dfa7e6/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg" for ::1 at 2019-12-06 15:01:10 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Prosurfer.jpg\"; filename*=UTF-8''Prosurfer.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRRakUzYVhkU1JYVTJaVXRtYVVWaE1rWTNVbE5NTTJScUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjA2OjEwLjUyNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7fc95971ddb523433ff49a3f6da573918dfa7e6", "filename"=>"Prosurfer"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 15:01:24 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1EgHD6s1Q21L1ixE/JVYLzB4/IJdrIZTSFJDxTB+GokHQ1Zy8PAhFEa0uCtLextMMAeMtyG7JCNqz3Gv5+dvnQ==", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007f93a540def0 @tempfile=#<Tempfile:/var/folders/c6/8n0z3ts954z7jvpzhmnvpjv00000gp/T/RackMultipart20191206-13477-1vw04u2.jpeg>, @original_filename="Emmet.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"avatar\"; filename=\"Emmet.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:4
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:8
+[36m  Disk Storage (2.4ms) [0m[32mUploaded file to key: aMcNw5BBmuXcwaFwairFkass (checksum: K/bZp6h+JWgM3SzDOfC2Kg==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[36mActiveStorage::Blob Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "aMcNw5BBmuXcwaFwairFkass"], ["filename", "Emmet.jpeg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 41173], ["checksum", "K/bZp6h+JWgM3SzDOfC2Kg=="], ["created_at", "2019-12-06 14:01:24.503356"]]
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[35m (33.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[36mActiveStorage::Attachment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[36mActiveStorage::Attachment Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 32], ["blob_id", 3], ["created_at", "2019-12-06 14:01:24.542810"]]
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2019-12-06 14:01:24.544827"], ["id", 32]]
+  ↳ app/controllers/avatars_controller.rb:8
+  [1m[35m (34.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/avatars_controller.rb:8
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 174eeb16-504a-48ee-b9cb-75accd7c74d5) to Async(default) with arguments: #<GlobalID:0x00007f93aa31f070 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/3>>
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: e4c1e3b3-a822-46a8-99ad-f956f33182d0) to Async(default) with arguments: #<GlobalID:0x00007f93a45c69c8 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/2>>
+Redirected to http://localhost:3000/users/edit.32
+Completed 302 Found in 234ms (ActiveRecord: 72.0ms)
+
+
+Started GET "/users/edit.32" for ::1 at 2019-12-06 15:01:24 +0100
+Processing by Devise::RegistrationsController#edit as 
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Blob Load (3.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5] Performing ActiveStorage::AnalyzeJob (Job ID: 174eeb16-504a-48ee-b9cb-75accd7c74d5) from Async(default) with arguments: #<GlobalID:0x00007f93a4711468 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/3>>
+  Rendering devise/registrations/edit.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5] [36m  Disk Storage (22.3ms) [0m[34mDownloaded file from key: aMcNw5BBmuXcwaFwairFkass[0m
+  [1m[36mActiveStorage::Blob Load (8.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0] Performing ActiveStorage::PurgeJob (Job ID: e4c1e3b3-a822-46a8-99ad-f956f33182d0) from Async(default) with arguments: #<GlobalID:0x00007f93a99e8650 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   [1m[35m (58.5ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5]   [1m[36mActiveStorage::Blob Update (1.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__1354202699872941311_70136047918260 at /Users/pol-erwan/THP/semaine10/final_project/kitepacker/app/views/devise/registrations/edit.html.erb:14)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5]   [1m[35m (45.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [174eeb16-504a-48ee-b9cb-75accd7c74d5] Performed ActiveStorage::AnalyzeJob (Job ID: 174eeb16-504a-48ee-b9cb-75accd7c74d5) from Async(default) in 143.28ms
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   [1m[36mActiveStorage::Attachment Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   [1m[36mActiveStorage::Blob Destroy (2.2ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 2]]
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendered devise/registrations/edit.html.erb within layouts/application (149.3ms)
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0] [36m  Disk Storage (0.4ms) [0m[31mDeleted file from key: B17iwREu6eKfiEa2F7RSL3dj[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0] [36m  Disk Storage (0.3ms) [0m[31mDeleted files by key prefix: variants/B17iwREu6eKfiEa2F7RSL3dj/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [e4c1e3b3-a822-46a8-99ad-f956f33182d0] Performed ActiveStorage::PurgeJob (Job ID: e4c1e3b3-a822-46a8-99ad-f956f33182d0) from Async(default) in 149.45ms
+Completed 200 OK in 332ms (Views: 321.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit" for ::1 at 2019-12-06 15:01:31 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__1354202699872941311_70136056047900 at /Users/pol-erwan/THP/semaine10/final_project/kitepacker/app/views/devise/registrations/edit.html.erb:14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 224ms (Views: 219.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-12-06 15:01:33 +0100
+Processing by HostelsController#index as HTML
+  Rendering hostels/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbartransparent.html.erb:21
+  Rendered layouts/_navbartransparent.html.erb (5.5ms)
+  [1m[36mHostel Load (0.9ms)[0m  [1m[34mSELECT "hostels".* FROM "hostels"[0m
+  ↳ app/views/hostels/index.html.erb:198
+  Rendered hostels/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 155ms (Views: 142.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/32" for ::1 at 2019-12-06 15:01:37 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (13.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (2.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 150ms (Views: 122.3ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7e323060cb04dc8a59e2034add0bc687f80a9a7/Emmet.jpeg" for ::1 at 2019-12-06 15:01:37 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7e323060cb04dc8a59e2034add0bc687f80a9a7", "filename"=>"Emmet"}
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (1.0ms) [0m[34mGenerated URL for file at key: aMcNw5BBmuXcwaFwairFkass (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDowNjozNy41NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--148d3c0e7c51baf9ef215e8611cd5d2ee49681b8/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDowNjozNy41NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--148d3c0e7c51baf9ef215e8611cd5d2ee49681b8/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDowNjozNy41NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--148d3c0e7c51baf9ef215e8611cd5d2ee49681b8/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg" for ::1 at 2019-12-06 15:01:37 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"Emmet.jpeg\"; filename*=UTF-8''Emmet.jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDowNjozNy41NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--148d3c0e7c51baf9ef215e8611cd5d2ee49681b8", "filename"=>"Emmet"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 15:01:43 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HwQzq/CHjGSo4kXDumbY8rfgrYsA5J0j+xTNCMKYwZjMD2LWq0LuHaWA0awNiJuRt5/dvnzzP1PZif9iFQG0jA==", "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:4
+Redirected to http://localhost:3000/users/edit.32
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit.32" for ::1 at 2019-12-06 15:01:43 +0100
+Processing by Devise::RegistrationsController#edit as 
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.6ms)
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__1354202699872941311_70136111599300 at /Users/pol-erwan/THP/semaine10/final_project/kitepacker/app/views/devise/registrations/edit.html.erb:14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (60.7ms)
+Completed 200 OK in 213ms (Views: 209.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-12-06 15:01:51 +0100
+Processing by HostelsController#index as HTML
+  Rendering hostels/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbartransparent.html.erb:21
+  Rendered layouts/_navbartransparent.html.erb (4.0ms)
+  [1m[36mHostel Load (0.5ms)[0m  [1m[34mSELECT "hostels".* FROM "hostels"[0m
+  ↳ app/views/hostels/index.html.erb:198
+  Rendered hostels/index.html.erb within layouts/application (72.0ms)
+Completed 200 OK in 188ms (Views: 179.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/32" for ::1 at 2019-12-06 15:02:03 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 121ms (Views: 107.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDowNjozNy41NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--148d3c0e7c51baf9ef215e8611cd5d2ee49681b8/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg" for ::1 at 2019-12-06 15:02:03 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"Emmet.jpeg\"; filename*=UTF-8''Emmet.jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDowNjozNy41NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--148d3c0e7c51baf9ef215e8611cd5d2ee49681b8", "filename"=>"Emmet"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-06 15:02:26 +0100
+Processing by HostelsController#index as HTML
+  Rendering hostels/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbartransparent.html.erb:21
+  Rendered layouts/_navbartransparent.html.erb (5.2ms)
+  [1m[36mHostel Load (0.8ms)[0m  [1m[34mSELECT "hostels".* FROM "hostels"[0m
+  ↳ app/views/hostels/index.html.erb:198
+  Rendered hostels/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 113ms (Views: 105.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/32" for ::1 at 2019-12-06 15:14:16 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (0.6ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 145ms (Views: 133.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7e323060cb04dc8a59e2034add0bc687f80a9a7/Emmet.jpeg" for ::1 at 2019-12-06 15:14:17 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7e323060cb04dc8a59e2034add0bc687f80a9a7", "filename"=>"Emmet"}
+  [1m[36mActiveStorage::Blob Load (10.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: aMcNw5BBmuXcwaFwairFkass (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg
+Completed 302 Found in 53ms (ActiveRecord: 10.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg" for ::1 at 2019-12-06 15:14:17 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"Emmet.jpeg\"; filename*=UTF-8''Emmet.jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975", "filename"=>"Emmet"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 15:14:51 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vz2nOq0DfNULyOLdMO7SIk3ZDXlh7iij2yWXEnImnaRsNvZH9sYerAaqdrKHAJFBTaZ9TB35itP5uKV4pb/osA==", "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:4
+Redirected to http://localhost:3000/users/edit.32
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/edit.32" for ::1 at 2019-12-06 15:14:51 +0100
+Processing by Devise::RegistrationsController#edit as 
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__1354202699872941311_70136092248020 at /Users/pol-erwan/THP/semaine10/final_project/kitepacker/app/views/devise/registrations/edit.html.erb:14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 213ms (Views: 207.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/32" for ::1 at 2019-12-06 15:15:28 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (68.2ms)
+Completed 200 OK in 204ms (Views: 148.7ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg" for ::1 at 2019-12-06 15:15:28 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"Emmet.jpeg\"; filename*=UTF-8''Emmet.jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975", "filename"=>"Emmet"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 15:15:32 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vkBkoQPCLlQYYmWUes4NqAVsSy/eeP6ii23+VJpoYhjI5SqnwkZXTRsUWrGrLMyi4kgMXB8zocr4EimGXCYtmQ==", "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:4
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Attachment Destroy (0.7ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/avatars_controller.rb:6
+Completed 422 Unprocessable Entity in 15ms (ActiveRecord: 2.5ms)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to save the new associated avatar_attachment.):
+  
+app/controllers/avatars_controller.rb:6:in `create'
+Started GET "/users/32" for ::1 at 2019-12-06 15:17:18 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (52.6ms)
+Completed 200 OK in 178ms (Views: 122.5ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg" for ::1 at 2019-12-06 15:17:19 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"Emmet.jpeg\"; filename*=UTF-8''Emmet.jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoxOToxNy4yNTRaIiwicHVyIjoiYmxvYl9rZXkifX0=--aec93bbcaf8de790fd4c565b2a95ef273ee9d975", "filename"=>"Emmet"}
+Completed 304 Not Modified in 6ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 15:17:23 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u7SO9KvxAGbPiWN1deNw5va3FuSJzHiQQCqTbqc0RGDNEcDyanV5f8z/XFCkAbHsEZNRl0iHJ/gzVUS8YXoL4Q==", "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:4
+Redirected to http://localhost:3000/users/edit.32
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/edit.32" for ::1 at 2019-12-06 15:17:23 +0100
+Processing by Devise::RegistrationsController#edit as 
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__1354202699872941311_70136063310780 at /Users/pol-erwan/THP/semaine10/final_project/kitepacker/app/views/devise/registrations/edit.html.erb:14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (62.8ms)
+Completed 200 OK in 219ms (Views: 215.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/32" for ::1 at 2019-12-06 15:24:06 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mBooking Load (0.7ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 201ms (Views: 145.5ms | ActiveRecord: 21.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7e323060cb04dc8a59e2034add0bc687f80a9a7/Emmet.jpeg" for ::1 at 2019-12-06 15:24:06 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a7e323060cb04dc8a59e2034add0bc687f80a9a7", "filename"=>"Emmet"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (1.0ms) [0m[34mGenerated URL for file at key: aMcNw5BBmuXcwaFwairFkass (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoyOTowNi44NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--a7201d261c698a6678591b208789c596a92f7578/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoyOTowNi44NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--a7201d261c698a6678591b208789c596a92f7578/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoyOTowNi44NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--a7201d261c698a6678591b208789c596a92f7578/Emmet.jpeg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22Emmet.jpeg%22%3B+filename%2A%3DUTF-8%27%27Emmet.jpeg" for ::1 at 2019-12-06 15:24:06 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"Emmet.jpeg\"; filename*=UTF-8''Emmet.jpeg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRZVTFqVG5jMVFrSnRkVmhqZDJGR2QyRnBja1pyWVhOekJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSS9hVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlSVzF0WlhRdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuUlcxdFpYUXVhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVIiwiZXhwIjoiMjAxOS0xMi0wNlQxNDoyOTowNi44NjVaIiwicHVyIjoiYmxvYl9rZXkifX0=--a7201d261c698a6678591b208789c596a92f7578", "filename"=>"Emmet"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 15:24:12 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+98sCaClH/qO99dPHv/rGsG6aXpcZvRNnAM3JFn7CW+NemIPYSFm442B6GrPHSoQJp4uCZ0tqyXvfOD2n7VG7g==", "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Attachment Destroy (3.3ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/avatars_controller.rb:6
+Completed 422 Unprocessable Entity in 25ms (ActiveRecord: 7.1ms)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to save the new associated avatar_attachment.):
+  
+app/controllers/avatars_controller.rb:6:in `create'
+Started POST "/users/32/avatars" for ::1 at 2019-12-06 15:24:22 +0100
+Processing by AvatarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+98sCaClH/qO99dPHv/rGsG6aXpcZvRNnAM3JFn7CW+NemIPYSFm442B6GrPHSoQJp4uCZ0tqyXvfOD2n7VG7g==", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007f93ac1a0170 @tempfile=#<Tempfile:/var/folders/c6/8n0z3ts954z7jvpzhmnvpjv00000gp/T/RackMultipart20191206-13477-1x0zkdj.jpg>, @original_filename="Prosurfer.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"avatar\"; filename=\"Prosurfer.jpg\"\r\nContent-Type: image/jpeg\r\n">, "commit"=>"mettre à jour", "user_id"=>"32"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/avatars_controller.rb:6
+[36m  Disk Storage (3.5ms) [0m[32mUploaded file to key: 7wVDYnbH9Dm5LWMUhgfUNKFw (checksum: Uk/rYd4tRjy0o6eiPi/Byg==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "7wVDYnbH9Dm5LWMUhgfUNKFw"], ["filename", "Prosurfer.jpg"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 151373], ["checksum", "Uk/rYd4tRjy0o6eiPi/Byg=="], ["created_at", "2019-12-06 14:24:22.814352"]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[35m (12.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Attachment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mActiveStorage::Attachment Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 32], ["blob_id", 4], ["created_at", "2019-12-06 14:24:22.832532"]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2019-12-06 14:24:22.834946"], ["id", 32]]
+  ↳ app/controllers/avatars_controller.rb:6
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/avatars_controller.rb:6
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 2dd45e4b-3700-41fb-a656-45ef92fc4b97) to Async(default) with arguments: #<GlobalID:0x00007f93ac13af78 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/4>>
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: f1761c48-1c9e-4a59-a127-618c672bc597) to Async(default) with arguments: #<GlobalID:0x00007f93ac12a268 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/3>>
+Redirected to http://localhost:3000/users/32
+Completed 302 Found in 83ms (ActiveRecord: 22.8ms)
+
+
+Started GET "/users/32" for ::1 at 2019-12-06 15:24:22 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Blob Load (3.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 32], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:27
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97] Performing ActiveStorage::AnalyzeJob (Job ID: 2dd45e4b-3700-41fb-a656-45ef92fc4b97) from Async(default) with arguments: #<GlobalID:0x00007f93ac101c28 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/4>>
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597] Performing ActiveStorage::PurgeJob (Job ID: f1761c48-1c9e-4a59-a127-618c672bc597) from Async(default) with arguments: #<GlobalID:0x00007f93a9fb2400 @uri=#<URI::GID gid://the-kite-house-project/ActiveStorage::Blob/3>>
+  ↳ app/views/users/show.html.erb:27
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mBooking Load (1.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 32]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97] [36m  Disk Storage (2.5ms) [0m[34mDownloaded file from key: 7wVDYnbH9Dm5LWMUhgfUNKFw[0m
+  ↳ app/views/users/show.html.erb:77
+  Rendered users/show.html.erb within layouts/application (17.3ms)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97]   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97]   [1m[36mActiveStorage::Blob Update (2.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   [1m[36mActiveStorage::Attachment Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   [1m[36mActiveStorage::Blob Destroy (1.8ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 3]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97]   [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2dd45e4b-3700-41fb-a656-45ef92fc4b97] Performed ActiveStorage::AnalyzeJob (Job ID: 2dd45e4b-3700-41fb-a656-45ef92fc4b97) from Async(default) in 28.3ms
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597]   ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597] [36m  Disk Storage (0.2ms) [0m[31mDeleted file from key: aMcNw5BBmuXcwaFwairFkass[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/aMcNw5BBmuXcwaFwairFkass/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f1761c48-1c9e-4a59-a127-618c672bc597] Performed ActiveStorage::PurgeJob (Job ID: f1761c48-1c9e-4a59-a127-618c672bc597) from Async(default) in 37.14ms
+Completed 200 OK in 130ms (Views: 117.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9d89efd61f3c1d64c1b9f3c7acc39a64f0f67ea8/Prosurfer.jpg" for ::1 at 2019-12-06 15:24:23 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9d89efd61f3c1d64c1b9f3c7acc39a64f0f67ea8", "filename"=>"Prosurfer"}
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/pol-erwan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (1.0ms) [0m[34mGenerated URL for file at key: 7wVDYnbH9Dm5LWMUhgfUNKFw (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjI5OjIzLjEwMVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a668b6fe2ea954fcfaf4a723469b872d4fac5e4b/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjI5OjIzLjEwMVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a668b6fe2ea954fcfaf4a723469b872d4fac5e4b/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjI5OjIzLjEwMVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a668b6fe2ea954fcfaf4a723469b872d4fac5e4b/Prosurfer.jpg?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Prosurfer.jpg%22%3B+filename%2A%3DUTF-8%27%27Prosurfer.jpg" for ::1 at 2019-12-06 15:24:23 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Prosurfer.jpg\"; filename*=UTF-8''Prosurfer.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWROM2RXUkZsdVlrZzVSRzAxVEZkTlZXaG5abFZPUzBaM0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSkZhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlVSEp2YzNWeVptVnlMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblVISnZjM1Z5Wm1WeUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUT0iLCJleHAiOiIyMDE5LTEyLTA2VDE0OjI5OjIzLjEwMVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a668b6fe2ea954fcfaf4a723469b872d4fac5e4b", "filename"=>"Prosurfer"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
