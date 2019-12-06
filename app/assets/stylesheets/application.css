@@ -13,4 +13,5 @@
  *= require bootstrap.min
   *= require paper-kit
  *= require_tree .
+ *= require simple_calendar
  */

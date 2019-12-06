@@ -5,42 +5,50 @@
 	</head>
 	<body>
 		<h4>Résumer réservation</h4>
-		<div class="container">
+		<%= form_tag booking_orders_path(@booking.id) do %>
+			<div class="container">
 
-			<div>Prénom : <%=current_user.first_name%></div>
-			<div>Nom : <%=current_user.last_name%></div>
-			<%if @hostel%>
-				<div>Nom de l'hotel : <%=@hostel.name%></div>
-				<div>Prix de l'hotel par nuit : <%=@hostel.price%></div>
-			<%end%>
-			<% if @booking.start_date != nil and @booking.end_date != nil%>
+				<div>Prénom : <%=current_user.first_name%></div>
+				<div>Nom : <%=current_user.last_name%></div>
+
+				<%if @hostel%>
+					<div>Nom de l'hotel : <%=@hostel.name%></div>
+					<div>Prix de l'hotel par nuit : <%=@hostel.price%></div>
+					<div>Nombre de lit réserver : <%=@booking.bed_booked%></div>
+				<%end%>
+				<% if @booking.start_date != nil and @booking.end_date != nil%>
+					<hr>
+					<div>Date de réservation</div>
+					<div>Date de début : <%=@booking.start_date%></div>
+					<div>Date de fin : <%=@booking.end_date%></div>
+				<%end%>
+				
+				<% if @option %>
+					<hr>
+					<div>Date de réservation leçon</div>
+					<div>Date de debut : <%=@option.start_date%></div>
+					<div>Date de fin : <%=@option.end_date%></div>
+				<%end%>
+
 				<hr>
-				<div>Date de réservation</div>
-				<div>Date de début : <%=@booking.start_date%></div>
-				<div>Date de fin : <%=@booking.end_date%></div>
-			<%end%>
-			
-			<% if @option %>
-				<hr>
-				<div>Date de réservation leçon</div>
-				<div>Date de debut : <%=@option.start_date%></div>
-				<div>Date de fin : <%=@option.end_date%></div>
-			<%end%>
-
-			<hr>
-			<% if @booking.location_item == true%>
-				<div>Location de matériel ajouté</div>
-			<% else %>
-				<div>Pas de matériel loué</div>
-			<%end%>
-
-			<% if @booking.full_board == true %>
-				<div>Full Pention</div>
-			<%else%>
-				<div>Demie Pension</div>
-			<%end%>
-
-		</div>
-
+				<% if @booking.location_item == true%>
+					<div>Location de matériel ajouté</div>
+				<% else %>
+					<div>Pas de matériel loué</div>
+				<%end%>
+				<% if @hostel%>
+					<% if @booking.full_board == true %>
+						<div>Full Pention</div>
+					<%else%>
+						<div>Demie Pension</div>
+					<%end%>
+				<%end%>
+				<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Inscription à l'événement"
+                data-amount="100"
+                data-locale="auto"></script>
+			</div>
+		<%end%>
 	</body>
 </html>

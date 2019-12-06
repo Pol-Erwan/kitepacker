@@ -6,9 +6,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings, dependent: :destroy
 
-  # after_create :welcome_send
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
-  #def welcome_send
-   # UserMailer.welcome_email(self).deliver_now
-  #end
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
 end

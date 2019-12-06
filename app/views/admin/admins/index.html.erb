@@ -49,3 +49,37 @@
 </div>
 </div>
 <br><br><br>
+
+<!-- Calendar -->
+
+<%= month_calendar events: @bookings do |date, bookings| %>
+  <%= date %>
+
+  <% bookings.each do |booking| %>
+    <div>
+      
+      Réservation nuit: <%= booking.user.first_name %>
+      <% if booking.option_id == nil%>
+     X
+     
+      <% else %>
+      leçon prise
+       <%end%>
+
+       <% if booking.location_item == true %>
+       location prise 
+       <% else %>
+       X
+       <%end%>
+
+
+       <% if booking.full_board == true %>
+       pension complète prise
+       <% else %>
+       X
+       <%end %>
+    </div>
+  <% end %>
+
+
+<% end %>

@@ -2,7 +2,7 @@ class OrderMailer < ApplicationMailer
 
 	def customer_confirmation(order)
 		#sends an email to the customer to confirm their reservation
-		@order = order
+		@booking = Booking.find(order.booking_id)
 		@user = User.find(@booking.user_id)
 		@url  = '#'	#write the proper email adress
     	mail(to: @user.email, subject: 'Votre commande est enregistrée!')

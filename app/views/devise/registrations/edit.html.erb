@@ -1,24 +1,15 @@
 
-<section class="section section-shaped section-lg" >
-  <div class="shape shape-style-1 " style="background-image: url(https://cdn.pixabay.com/photo/2016/11/29/03/27/action-1867052_960_720.jpg); background-size:cover; background-position:center; filter: opacity(60%);">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<body style="background-image: url(https://images.unsplash.com/photo-1542315291377-a38c9fe57384?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); background-repeat:no-repeat; background-size:cover; background-position:center; ">
 
-  <div class="container pt-lg-md" style="margin-top:4rem; margin-bottom:4rem;">
+  <div class="container pt-lg-md" >
     <div class="row justify-content-start">
       <div class="col-lg-5">
-        <div class="card bg-secondary shadow border-0" style="width:120%; border-radius:10px;">
+        <div class="card bg-white shadow border-0" style="width:140%; border-radius:20px; margin-top:8rem; margin-bottom:4rem;">
+
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
-            <h4 class="h3 mb-3 mt-4 font-weight-normal text-center" style="font-size:38px;">Modifier mes Infos</h4>
+            <h4 class="h3 my-4 font-weight-normal text-center" style="font-size:38px;">Modifier mes Infos</h4>
               <hr style="width:80%;">
                 <%= devise_error_messages! %>
                 <div class="mx-auto pb-3" style="width:80%;">
@@ -50,26 +41,12 @@
                           <%= f.password_field :current_password, autocomplete: "current-password" , class: "form-control"%>
                         </div>
                         <br>
-                        <div class="actions">
+                        <div class="actions my-4">
                           <%= f.submit "Update", class:"btn btn-success btn-block btn-round" %>
                         </div>
                       <% end %>
 
-<%if @user.avatar.attached?%>
-  <%= image_tag @user.avatar, alt: 'avatar' %>
-<%else%>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDh8y1VQVinjPy8bWI5NpgrpdVMb8pR9a52in-fdo7ybyOapWu&s" class="rounded-circle" style="margin-top:1rem;">
-<%end%>
-
-<h3>Changer d'avatar ?</h3>
-<%= form_tag user_avatars_path(@user), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
-
-
-
-                      <p class="mt-4">Tu souhaites nous quitter ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-light btn-block btn-round" %></p>
+                      <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-light btn-block btn-round" %>
 
                       <%= link_to "Back", :back %>
 
@@ -78,4 +55,4 @@
           </div>
         </div>
       </div>
-</section>
+</body>
