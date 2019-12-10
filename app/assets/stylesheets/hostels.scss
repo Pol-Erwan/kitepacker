@@ -1,3 +1,24 @@
 // Place all the styles related to the hostels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Hostel#Show
+
+.body-show {background-image: url(https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-repeat:no-repeat; background-size:cover; background-position:center;}
+
+.container-show {text-align: center; margin-top: 150px}
+
+.card-show {width: 60rem; display: inline-block}
+.h1-show {font-size: 100px; font-weight:500}
+
+.carousel-show {width: 600px; height:600px; margin-top: 50px; display: inline-block}
+.row-card-show {margin-top: 30px; text-align:center; justify-content:center; align-items:center}
+.description-card {width: 20rem; margin-left: -120px}
+
+.card-title-show {color: #51bcda}
+
+.reservation-card {width: 20rem}
+
+.card-text-show {font-style: italic}
+
+.container-button {margin-bottom: 20px}

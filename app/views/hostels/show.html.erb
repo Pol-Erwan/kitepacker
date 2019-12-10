@@ -1,20 +1,19 @@
-<!-- dégradé couleurs: radial-gradient(circle at top left,#B38B39, white); -->
 
-  <%= render "layouts/navbar" %>
+ <%= render "layouts/navbar" %>
 
-<body style="background-image: url(https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-repeat:no-repeat; background-size:cover; background-position:center;">
+<body class="body-show">
 <!-- https://images.pexels.com/photos/662994/pexels-photo-662994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940-->
 <br>
 
-<div class="container" style="text-align: center; margin-top: 150px">
-      <div class="card" style="width: 60rem; display: inline-block;">
+<div class="container container-show">
+      <div class="card card-show">
          <div class="card-body">
          <p class="card-text">
-          <h1 style="font-size: 100px; font-weight:500"><%=@hostel.name%></h1>
+          <h1 class="h1-show"><%=@hostel.name%></h1>
           <h2> L'un de nos hôtels préférés ! </h2>
          </p>
 
-<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" style="width: 600px; height:600px;margin-top: 50px; display: inline-block;">
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade carousel-show" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -45,11 +44,11 @@
 
 
 
-<div class="row mx-auto" style="margin-top: 30px; text-align:center; justify-content:center; align-items:center; ">
+<div class="row mx-auto row-card-show">
   <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
-    <div class="card" style="width: 20rem; margin-left: -120px;">
+    <div class="card description-card">
       <div class="card-body">
-      <h4 class="card-title" style="color: #51bcda">Description</h4>
+      <h4 class="card-title card-title-show">Description</h4>
       <br>
       <p> Une magnifique auberge située à moins de 200 mètres de la plage. Vous pourrez profiter d'un grand jardin, pour vous détendre sous les palmiers après une longue journée de kite-surf.
 
@@ -60,18 +59,18 @@
   </div>
 
   <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
-    <div class="card" style="width: 20rem">
+    <div class="card reservation-card">
       <div class="card-body">
-      <h4 class="card-title" style="color: #51bcda">Réservation</h4>
+      <h4 class="card-title card-title-show">Réservation</h4>
       <br>
-      <p class="card-text" style="font-style: italic;">Localisation: <%=@hostel.address %>, <%=@hostel.zip_code%> <%=@hostel.city %>
-      <p class="card-text" style="font-style: italic;">
+      <p class="card-text card-text-show">Localisation: <%=@hostel.address %>, <%=@hostel.zip_code%> <%=@hostel.city %>
+      <p class="card-text card-text-show">
       <i class="nc-alert-circle-i"></i>
 
       Nombre de lits disponibles: <%=@hostel.bed_number%>  </p>
 
       </p>
-      <p class="card-text" style="font-style: italic;">
+      <p class="card-text card-text-show">
       <i class="nc-money-coins"></i>
       Prix d'un lit /nuit :<%=@hostel.price%> </p>
 
@@ -87,7 +86,7 @@
 </div>
 
 </div>
-<div class="container" style="margin-bottom: 20px"> 
+<div class="container container-button"> 
  <a href="<%=new_booking_path(hostels_id:@hostel.id)%>" class="btn ">Je réserve!</a>
  <a href="<%= root_path %>" class="btn ">Retour à l'accueil</a>
 </div>

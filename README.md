@@ -1,3 +1,24 @@
+Voici le lien vers l'application heroku du Kite Surf Project :
+http://kitepackers.herokuapp.com/
+
+Pour se connecter et avoir un rôle d'administrateur, veuillez utiliser le login suivant :
+
+EMAIL : thp.best.group.mtp@gmail.com
+PWD : anonymous
+
+Travail réalisé durant cette première semaine de projet final :
+- brainstorming, création de la BDD et du seed
+- MVP fonctionnel
+- Système de réservation via Devise
+- Possibilité de réaliser une réservation
+- Paiement via Stripe
+- Mailer via Gmail
+- Profil utilisateur
+- Pannel Admin
+- Début de la réalisation du front
+
+
+
 *!!!* Eliminatory points : *!!!*
 
 1 - No mix code (ex:HTML in controllers, git conflict message anywhere).
@@ -10,9 +31,9 @@
 
 <><><><><><><><><><><><><><><><><><><><><><><><>
 
-githup process : 
+githup process :
 
-* !!!! * never push on master 
+* !!!! * never push on master
 * !!!! * never use "git add." or "git add*"
 
 git pull origin development      -> update app

@@ -114,7 +114,7 @@
           <button class="btn btn-info btn-round"><a href="<%= edit_user_registration_path %>">Edit profil</a></button><br><br>
 
           <%if @user.avatar.attached?%>
-            <%= image_tag(@user.avatar, alt: 'avatar') %>
+            <%= image_tag @user.avatar, alt: 'avatar' %>
           <%else%>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDh8y1VQVinjPy8bWI5NpgrpdVMb8pR9a52in-fdo7ybyOapWu&s" class="rounded-circle" style="margin-top:1rem;">
           <%end%>

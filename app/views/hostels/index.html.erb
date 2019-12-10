@@ -1,4 +1,4 @@
-  <%= render "layouts/navbartransparent" %>
+<%= render "layouts/navbartransparent" %>
 
 <style>
 
@@ -25,22 +25,22 @@ function creerBoutons() {
     // Créé les boutons de gestion du lecteur
     var btnLecture = document.createElement("button");
     var btnPause = document.createElement("button");
-    
+
     var controlesBox = document.getElementById("controles");
     lecteur = document.getElementById("mavideo");
-    
+
     // Ajoute un peu de textes
     btnLecture.textContent = "Lecture";
     btnPause.textContent = "Pause";
-    
+
     // On ajoute les boutons à l'interface
     controlesBox.appendChild(btnLecture);
     controlesBox.appendChild(btnPause);
-    
+
     // On lie les fonctions aux boutons
     btnLecture.addEventListener("click", lecture, false);
     btnPause.addEventListener("click", pause, false);
-    
+
     // On affiche les nouveaux boutons et supprime l'interface original
     controlesBox.removeAttribute("hidden");
     lecteur.removeAttribute("controls");
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', creerBoutons, false);
 
   <div class="page-header" style="height: 600px;">
     <video id="mavideo" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
-    <source src="https://hostelkite.s3.eu-west-3.amazonaws.com/index+the+kite+house+project.mp4" type="video/mp4">
+    <source src="https://hostelkite.s3.eu-west-3.amazonaws.com/Kitepackers.mp4" type="video/mp4">
   </video>
     <div class="card-img-overlay d-flex h-50 flex-column my-auto align-items-center justify-content-center text-center text-white">
       <div class="container">
         <div class="motto text-center">
-          <h1 style="font-weight:bold;" class="py-4">The Kite House Project</h1>
+          <h1  class="py-4 font-weight-bold">Tes kites holidays en 1 click !</h1>
           <br/>
           <a href="#destinations" class="btn btn-neutral btn-round "><i class="fas fa-water px-2"></i>Voir les Spots</a>
           <a href="<%= new_booking_path %>" class="btn btn-outline-neutral btn-round">Réserver mon séjour</a>
@@ -73,22 +73,22 @@ document.addEventListener('DOMContentLoaded', creerBoutons, false);
 
 
 
-        <div class="container row mx-auto  text-center pt-2" style="padding-bottom:8rem;">
+        <div class="container row mx-auto  text-center pt-4" style="padding-bottom:8rem;">
 
-          <div class="col-12 col-sm-12 col-md-4	col-lg-4	col-xl-4 px-3">
-            <i class="fas fa-map-marked-alt fa-5x pb-2"></i>
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4  col-xl-4 px-3">
+            <i class="fas fa-map-marked-alt fa-5x pb-4"></i>
             <h3 class="text-primary pb-2"> Trouves ton spot</h3>
             <p> 10 Hôtels spécialisés das le Kite situés sur les 10 meilleures plages de France.  </p>
           </div>
 
-          <div class="col-12 col-sm-12 col-md-4	col-lg-4	col-xl-4  px-3">
-            <i class="fas fa-hotel fa-5x pb-2"></i>
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4  col-xl-4  px-3">
+            <i class="fas fa-hotel fa-5x pb-4"></i>
             <h3 class="text-primary pb-2"> Réserves ton logement</h3>
             <p> De supers dispos, de supers prestas, réserves ta chambre ! </p>
           </div>
 
-          <div class="col-12 col-sm-12 col-md-4	col-lg-4	col-xl-4  px-3">
-            <i class="fas fa-water fa-5x pb-2"></i>
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4  col-xl-4  px-3">
+            <i class="fas fa-water fa-5x pb-4"></i>
             <h3 class="text-primary pb-2"> Surf la wave</h3>
             <p> Avec ou sans cours, avec ou sans ton matos, quoi qu'il en soit, surf !  </p>
           </div>
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', creerBoutons, false);
                        <span class="badge badge-pill badge-primary">Pension</span>
                        <span class="badge badge-pill badge-primary">Demi-pension</span>
                      </div>
-                     <a href="#" class="btn btn-primary mt-4"><i class="fas fa-plus"></i> d'infos</a>
+                     <a href="<%=static_pages_path%>" class="btn btn-primary mt-4"><i class="fas fa-plus"></i> d'infos</a>
                    </div>
                  </div>
                </div>
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', creerBoutons, false);
                        <span class="badge badge-pill badge-success">Planches</span>
                        <span class="badge badge-pill badge-success">Combinaisons</span>
                      </div>
-                     <a href="#" class="btn btn-success mt-4"><i class="fas fa-plus"></i> d'infos</a>
+                     <a href="<%=static_pages_path%>" class="btn btn-success mt-4"><i class="fas fa-plus"></i> d'infos</a>
                    </div>
                  </div>
                </div>
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', creerBoutons, false);
                        <span class="badge badge-pill badge-info">Lessons</span>
                        <span class="badge badge-pill badge-info">Cours particuliers</span>
                      </div>
-                     <a href="#" class="btn btn-info mt-4"><i class="fas fa-plus"></i> d'infos</a>
+                     <a href="<%=static_pages_path%>" class="btn btn-info mt-4"><i class="fas fa-plus"></i> d'infos</a>
                    </div>
                  </div>
                </div>
@@ -181,16 +181,21 @@ document.addEventListener('DOMContentLoaded', creerBoutons, false);
 
 
       <h2 style="text-align:center; font-size:42px; font-weight:lighter; padding-bottom:4rem; padding-top:4rem;"> Nos Destinations </h2>
-
-
-      <div class="input-group md-form form-sm form-2 pl-0 mx-auto" style="width:40%; padding-bottom:6rem;">
-        <input class="form-control my-0 py-1 lime-border mx-2" type="text" placeholder="Recherche" aria-label="Search" style="border-radius:20px;">
-        <div class="input-group-append">
-          <span class="input-group-text lime lighten-2" id="basic-text1"><i class="fas fa-search text-primary"
-              aria-hidden="true"></i></span>
+        <div class="input-group md-form form-sm form-2 pl-0 mx-auto" style="width:40%; padding-bottom:6rem; ">
+            <%= search_form_for @q do |f| %>
+            <div class="container row">
+              <div class="col-12">
+              <%= f.label :city_cont, "Recherche un hotel dans ta ville !"%>
+              </div>
+              <div class="col-2">
+                <%= f.submit class:"btn btn-primary", style:"justify-content:flex-end;" %>
+              </div>
+              <div class="col-10">
+                <%= f.text_field :city_cont, class: "form-control my-0 py-1 lime-border mx-2 ", style:"border-radius:20px; ", placeholder: "Rechercher"%><br>
+              </div>
+            </div>
+            <% end %>
         </div>
-      </div>
-
 
 
       <div class="container row card-column mx-auto">
@@ -198,21 +203,21 @@ document.addEventListener('DOMContentLoaded', creerBoutons, false);
       <% @hostels.each do |t, index| %>
 
 
-        <div class="card-picture col-12 col-sm-12 col-md-12	col-lg-4	col-xl-4 px-3 my-3">
+        <div class="card-picture col-12 col-sm-12 col-md-12 col-lg-6  col-xl-6 px-3 my-3">
 
           <a href="<%= hostel_path(t)%>"><img src="https://images.pexels.com/photos/812958/pexels-photo-812958.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="width:100%; border-radius:10px; filter: brightness(62%);">
             <div class=" card-img-overlay h-50 flex-column align-items-start  text-white px-4">
               <span class="badge badge-pill badge-light text-info py-2 mx-2"> À partir de <%= t.price.to_i %> € </span><br>
             </div>
             <div class="card-img-overlay d-flex h-50 flex-column my-auto align-items-center justify-content-center text-center text-white">
-              <h5 style="font-weight:bold; font-size:28px;"> <%= t.name %></h5>
-              <small class="text-grey" style="font-size:14px;"><i class="fas fa-bed"></i>  <%= t.bed_number %> </small>
+              <h5 class="font-weight-bold" style="font-size:32px;"> <%= t.name %></h5>
+              <small class="text-grey" style="font-size:20px;"><i class="fas fa-bed"></i>  <%= t.bed_number %> </small>
             </div>
           </a>
             <div class="container row d-flex pl-2 " style="align-items: center ; justify-content:space-between;">
               <div class="col-10">
-                <h5 class="text-info pt-2"><i class="fas fa-map-marker-alt"></i>  <%= t.city %></h5>
-                <p><small class="text-grey"> <%= t.address %> </small><br>
+                <h3 class="text-info pt-2"><i class="fas fa-map-marker-alt"></i>  <%= t.city %></h3>
+                <p style="font-size:16px;"><small class="text-grey"> <%= t.address %> </small><br>
                 <small class="text-grey"> ☆☆☆☆☆ (33) </small><br>
                 <a href="<%= new_booking_path(hostels_id:t.id) %>" class="badge badge-pill badge-primary text-white "> Réserver </a><br></p>
               </div>

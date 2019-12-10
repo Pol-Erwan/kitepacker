@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_152132) do
+ActiveRecord::Schema.define(version: 2019_12_09_155325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 2019_12_04_152132) do
     t.bigint "hostel_id"
     t.bigint "option_id"
     t.boolean "location_item"
+    t.boolean "is_paid"
+    t.integer "number_location"
+    t.date "start_date_location_item"
+    t.date "end_date_location_item"
     t.index ["hostel_id"], name: "index_bookings_on_hostel_id"
     t.index ["option_id"], name: "index_bookings_on_option_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
@@ -61,6 +65,10 @@ ActiveRecord::Schema.define(version: 2019_12_04_152132) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "map"
+    t.string "image_url"
+    t.boolean "wifi"
   end
 
   create_table "options", force: :cascade do |t|
@@ -69,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_152132) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "attendees_number"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -91,6 +100,10 @@ ActiveRecord::Schema.define(version: 2019_12_04_152132) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.text "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,54 +1,115 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-		<h4>Résumer réservation</h4>
-		<%= form_tag booking_orders_path(@booking.id) do %>
-			<div class="container">
+<style>
 
-				<div>Prénom : <%=current_user.first_name%></div>
-				<div>Nom : <%=current_user.last_name%></div>
 
-				<%if @hostel%>
-					<div>Nom de l'hotel : <%=@hostel.name%></div>
-					<div>Prix de l'hotel par nuit : <%=@hostel.price%></div>
-					<div>Nombre de lit réserver : <%=@booking.bed_booked%></div>
-				<%end%>
-				<% if @booking.start_date != nil and @booking.end_date != nil%>
-					<hr>
-					<div>Date de réservation</div>
-					<div>Date de début : <%=@booking.start_date%></div>
-					<div>Date de fin : <%=@booking.end_date%></div>
-				<%end%>
-				
-				<% if @option %>
-					<hr>
-					<div>Date de réservation leçon</div>
-					<div>Date de debut : <%=@option.start_date%></div>
-					<div>Date de fin : <%=@option.end_date%></div>
-				<%end%>
 
-				<hr>
-				<% if @booking.location_item == true%>
-					<div>Location de matériel ajouté</div>
-				<% else %>
-					<div>Pas de matériel loué</div>
-				<%end%>
-				<% if @hostel%>
-					<% if @booking.full_board == true %>
-						<div>Full Pention</div>
-					<%else%>
-						<div>Demie Pension</div>
-					<%end%>
-				<%end%>
-				<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-description="Inscription à l'événement"
-                data-amount="100"
-                data-locale="auto"></script>
+</style>
+
+		<h2 class="text-center pt-4 mt-4 pb-2 mb-2">Bonjour <%=current_user.first_name%> ! Voici le récapitulatif de ta réservation</h2>
+
+
+		<div class="container row mx-auto my-4 py-4 align-items-start">
+
+			<% if @hostel %>
+			<div class="col-8">
+				<h2 class="text-danger"><%=@hostel.name%></h2><br>
+				<p class="text-primary"><strong><i class="far fa-clock mr-2 text-success"></i> <%= @booking.start_date %> <i class="far fa-clock ml-4 mr-2 text-danger"></i> <%=  @booking.end_date  %> </strong></p><br>
+				<hr style="width:80%;">
+				<p style="width:88%; text-indent:justify;">METTRE DESCRIPTION QUAND LA VARIABLE EXISTERA <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+				<br><br>
+				<p class="mb-4"> <i class="fas fa-map-marker-alt pl-3 pr-2"></i> <%= @hostel.address %>, <%= @hostel.zip_code %> <strong> <%= @hostel.city %> </strong></p>
+				<div class="container row " style="justify-content: flex-start;">
+					<p class="col-4 mb-4"> <i class="fas fa-money-bill-wave pr-2"></i><%=@hostel.price.to_i%> € <small> nuit / personne</small></p>
+					<p class="col-4 mb-4"> <i class="fas fa-utensils pr-2"></i> <small> Pension-complète</small></p>
+					<p class="col-4 mb-4"> <i class="fas fa-wifi pr-2"></i> <small> Oui</small></p>
+				</div>
+				<% end %>
+
+
+
+					<div class="container row d-flex" style="align-items:flex-end">
+						<div class="col-6">
+							<img src="https://cdn.pixabay.com/photo/2014/08/08/21/03/bedroom-413706_960_720.jpg" style="width:100%;">
+						</div>
+						<div class="right col-6">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2888.8050101815907!2d3.8721589!3d43.6106014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af078b20464b%3A0xff0f2da78acb2843!2sl&#39;Anacrouse%20-%20%C3%89cole%20de%20Musique!5e0!3m2!1sfr!2sfr!4v1575894644148!5m2!1sfr!2sfr" width="auto" height="100%" frameborder="0" style="border:1;" allowfullscreen=""></iframe>
+						</div>
+					</div>
+
 			</div>
+
+			<div class="col-4 card border border-info rounded py-4 px-3" style="background-color:#fcf9ff;">
+
+				<h3 class="px-3 text-primary">Récapitulatif de ma commande </h3><br>
+
+					<%= form_tag booking_orders_path(@booking.id) do %>
+					<% @total_price = 0%>
+						<div class="container">
+
+							<h6 class="text-primary">L'Hôtel <small class="text-muted">Du <%= @booking.start_date %> au <%=  @booking.end_date  %> </small></h6>
+
+							<%if @hostel%>
+								<p>Nb de nuit : <%=(@booking.end_date.strftime("%d").to_i - @booking.start_date.strftime("%d").to_i)  %> Nuits</p>
+								<p>Nb de voyageurs : <%=@booking.bed_booked%> </p>
+								<p>Choix de la pension :
+									<% if @booking.full_board == true%>
+										Complète
+									<%elsif @hostel%>
+										Demie Pension
+									<%end%>
+								</p>
+								<p ><strong>Total : <%=@hostel.price.to_i * (@booking.end_date.strftime("%d").to_i - @booking.start_date.strftime("%d").to_i)* @booking.bed_booked %></strong> € (manque le nb de voyageurs)</p>
+								<% @total_price += @hostel.price.to_i * (@booking.end_date.strftime("%d").to_i - @booking.start_date.strftime("%d").to_i)* @booking.bed_booked %>
+							<%end%>
+
+							<hr>
+							<% if @option != nil%>
+								<h6 class="text-primary">Les Cours <small class="text-muted">Du <%= @option.start_date %> au <%=  @option.start_date  %> </small></h6>
+							<%end%>
+
+							<% if @booking.start_date != nil and @booking.end_date != nil and @option != nil%>
+								<p>Nb de cours : <%=(@option.end_date.strftime("%d").to_i - @option.start_date.strftime("%d").to_i)  %> Cours </p>
+								<p>Prix / journée : 140 €</p>
+								<p ><strong>Total : <%= (@option.end_date.strftime("%d").to_i - @option.start_date.strftime("%d").to_i)*140* @booking.bed_booked %></strong> € </p>
+								<% @total_price += (@option.end_date.strftime("%d").to_i - @option.start_date.strftime("%d").to_i)*140* @booking.bed_booked %>
+							<%end%>
+
+							<hr>
+
+							<h6 class="text-primary">Le Matériel <small><%= @booking.start_date %> au <%=  @booking.start_date  %> </small></h6>
+
+							<% if @option %>
+								<p>Price : 50 € / jours <%=@option.start_date%></p>
+								<p>Durée : <%= (@option.end_date.strftime("%d").to_i - @option.start_date.strftime("%d").to_i) %> jours</p>
+								<p ><strong>Total : <%= 50 * (@option.end_date.strftime("%d").to_i - @option.start_date.strftime("%d").to_i) %></strong> € </p> <!-- ajouter * nb jour loc -->
+								<% @total_price +=  50 * (@option.end_date.strftime("%d").to_i - @option.start_date.strftime("%d").to_i)%>
+						  <%end%>
+
+
+
+							<hr>
+
+							<% if @booking.is_paid != true %>
+								<p><strong>TOTAL DE LA RESERVATION : </strong><%= @total_price %> </p>
+
+								<br>
+
+									<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+					                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					                data-description="Réservation Kitepackers"
+					                data-amount="<%=@total_price * 100%>"
+					                data-locale="auto"></script>
+					     <%else%>
+					        	<div>Réservation déjà payée</div>
+			         <%end%>
+						</div>
+
+
+
+
+
+
+				</div>
+
+
+		</div>
 		<%end%>
-	</body>
-</html>

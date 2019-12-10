@@ -1,52 +1,143 @@
-<%= form_with url: bookings_path, local: true, class:'container' do |form| %>
+<body style="background-image: url(https://images.unsplash.com/photo-1542315291377-a38c9fe57384?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); background-repeat:no-repeat; background-size:cover;">
 
-	<div class="form-style-8">
-	  <h2>Reservation hotel </h2>
-	  <div>
-			<%= form.label "Date de début"%>
-			<%= form.date_field :start_date %>
-			<%= form.label "Date de fin"%>
-			<%= form.date_field :end_date %>
-			<%= form.label 'Pention/Demie-pension'%>
-			<%= form.check_box :full_board%>
 
-			<% if @hostel%>
-				<div>
-					Nombre de lit : <%= form.number_field(:bed_booked,in:1..@hostel.bed_number, step: 1) %>
-				</div>
-			<%end%>
-			
+  <div class="container pt-lg-md" >
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class=" bg-white shadow border-0 " style="width:160%; border-radius:10px; margin-top:10rem; margin-bottom:4rem; padding-top:2rem; padding-bottom:4rem;">
 
-			<% if params[:hostels_id] == nil%>
-				<div>Aucun hotel choisi</div>
-			<%else%>
-				<div>Vous avez choisi l'hotel : <%= @hostel.name%> Adressse hotel : <%= @hostel.address%></div>
-			<%end%>
-			<%= link_to "Liste Hotel", root_path(anchor: "destinations"), class:'btn btn-primary'%>
 
-	  </div>
+					<h2 class="my-4 font-weight-normal text-center" style="font-size:48px;">Réserves ton séjour !</h2>
+
+						<%= form_with url: bookings_path, local: true, class:'container' do |form| %>
+
+							<div class="form-style-8 mx-auto" style="width:90%;">
+							  <h2 class="pb-4">Réserver mon hôtel </h2>
+
+								<% if params[:hostels_id] == nil%>
+									<div>Aucun hotel choisi</div>
+								<%else%>
+									<div>Vous avez choisi l'hotel : <%= @hostel.name%> Adresse hotel : <%= @hostel.address%></div>
+								<%end%>
+
+								<div class=" row form-group">
+									<div class="form-group col-10 ">
+										<label for="exampleFormControlSelect1">Choisir mon Hôtel : </label>
+										<select class="form-control" id="exampleFormControlSelect1">
+											<% @hostels.each do |t|%>
+											<option><%= t.name %>,  <small > <%= t.city %> </small></option>
+											<%end%>
+										</select>
+									</div>
+									<div class="col-6 mb-4 mt-2">
+									<%= form.label "Date de début"%>
+									<%= form.date_field :start_date, class:"form-control " %>
+									</div>
+									<div class="col-6 mb-4 mt-2">
+									<%= form.label "Date de fin" %>
+									<%= form.date_field :end_date, class:"form-control " %>
+									</div>
+									<% if @hostel%>
+										<div class="col-6 mt-2">
+											Nombre de personnes : <%= form.number_field(:bed_booked,in:1..@hostel.bed_number, step: 1) %>
+										</div>
+									<%end%>
+
+									<div class="col-6  mt-3" data-toggle="tooltip" data-placement="right" title="La pension complète comprend le petite déjeuner, le déjeuner et le dîner. En ne choisissant pas cette option, vous optez pour la demi pension comprennant le petit déjeuner et le dîner." >
+										<%= form.label 'Pention Complète'%>
+										<%= form.check_box :full_board%>
+									</div>
+
+									<br>
+
+							  </div>
+							</div>
+
+
+							<p id="show-more" class="btn btn-outline-danger mx-4 my-3"> Plus d'options </p>
+
+
+							<div id="options" class="collapse">
+
+								<div class="form-style-8 mx-auto" style="width:90%;">
+								  <h2>Prendre des cours </h2>
+								  <div class="container row">
+										<div class="col-6 my-4">
+											<%= form.label "Date de début option" %>
+											<%= form.date_field :start_date_option, class:"form-control " %>
+										</div>
+										<div class="col-6 my-4">
+											<%= form.label "Date de fin option" %>
+											<%= form.date_field :end_date_option, class:"form-control " %>
+										</div>
+								  </div>
+								</div>
+
+								<div class="form-style-8 mx-auto mb-4" style="width:90%;">
+								  <h2>Louer du matériel </h2>
+									<div class="col-12" data-toggle="tooltip" data-placement="left" title="La location du matériel comprend la location de la planche, de la voile ansi que la combinaison si nécessaire." >
+									  <%= form.label "Location de matériel"%>
+										<%= form.check_box :location_item%>
+										Nombre de personnes : <%= form.number_field(:number,in:0..20, step: 1) %>
+										<div class="col-6 mb-4 mt-2">
+										<%= form.label "Date de début"%>
+										<%= form.date_field :start_date_location, class:"form-control " %>
+										</div>
+										<div class="col-6 mb-4 mt-2">
+										<%= form.label "Date de fin" %>
+										<%= form.date_field :end_date_location, class:"form-control " %>
+										</div>
+								  </div>
+
+								</div>
+
+							</div>
+
+							<% if @hostel != nil%>
+								<%=hidden_field_tag "hostel", @hostel.id%>
+							<%end%>
+							<%= form.submit "Valider", class:"btn btn-primary col-12"%>
+
+						<% end %>
+
+
+					</div>
+			</div>
 	</div>
+</div>
+</body>
 
-	<div class="form-style-8">
-	  <h2>Leçon : </h2>
-	  <div>
-		<%= form.label "Date de début option"%>
-		<%= form.date_field :start_date_option %>
-		<%= form.label "Date de fin option"%>
-		<%= form.date_field :end_date_option %>
-	  </div>
-	</div>
 
-	<div class="form-style-8">
-	  <h2>Location matériel :</h2>
-	  <div>
-	  	<%= form.label "Location de matériel"%>
-		<%= form.check_box :location_item%>
-	  </div>
-	</div>
-	<% if @hostel != nil%>
-		<%=hidden_field_tag "hostel", @hostel.id%>
-	<%end%>
-	<%= form.submit "Valider"%>
+<script>
 
-<% end %>
+		console.log("coucou")
+
+		var informations = document.getElementById("options");
+		var btn = document.getElementById("show-more");
+
+		console.log(informations)
+		console.log(btn)
+
+		function Click() {
+			informations.classList.toggle("collapse");
+		}
+
+		btn.addEventListener("click",Click);
+
+
+
+		$('.datetimepicker').datetimepicker({
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove'
+    }
+});
+
+</script>

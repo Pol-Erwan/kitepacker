@@ -1,0 +1,26 @@
+<div class="container">
+  <%= month_calendar events: @bookings do |date, bookings| %>
+    <h6 class="text-danger"><%= date %></h6>
+    <% bookings.each do |booking| %>
+      <div class="row my-2 mx-auto border " style="align-items:center; background-color:white; border-radius:4px; width:98%;">
+        <p class="col-12" style="font-size:14px;"><%= booking.user.first_name %> <%= booking.user.last_name %>
+        <p class="col-6"><i class="fas fa-bed"></i> <%= booking.bed_booked %></p>
+        <small class="text-muted col-6">
+        <% if booking.option_id == nil%>
+        <% else %>
+        <i class="far fa-check-circle text-danger pr-2"></i>
+         <%end%>
+         <% if booking.location_item == true %>
+         <i class="far fa-check-circle text-success pr-2"></i>
+         <% else %>
+         <%end%>
+         <% if booking.full_board == true %>
+         <i class="far fa-check-circle text-info"></i>
+         <% else %>
+         <%end %>
+        </small>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>

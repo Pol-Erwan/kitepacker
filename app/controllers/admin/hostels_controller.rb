@@ -3,6 +3,11 @@ class Admin::HostelsController < Admin::BasesController
     @hostels = Hostel.all
   end
 
+  def show
+    @hostel = Hostel.find(params[:id])
+    @bookings = Booking.where(hostel_id: @hostel.id)
+  end
+
   def new
     @hostel = Hostel.new
   end

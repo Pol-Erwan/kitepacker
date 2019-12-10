@@ -1,10 +1,10 @@
-<div class="container align-items-center row mx-auto" style="margin-top: 120px; align-content:center;" >
-  <div style="vertical-align: middle;">
+<div class="container align-items-center row mx-auto admin-index">
+  <div class="vertical">
   <a href="<%= admin_root_path %>" class=" pull-left btn btn-danger btn-just-icon">
     <i class="fas fa-arrow-left fa-2x"></i>
   </a>
   </div>
-  <div class="card mx-auto" style="width: 20rem;">
+  <div class="card mx-auto width">
   <div class="card-body">
     <p><i class="fas fa-hotel fa-3x mr-3"></i>Hotel actuel : <%= @hostels.count %></p>
   </div>
@@ -25,6 +25,8 @@
       <th scope="col">Nom</th>
       <th scope="col">Ville</th>
       <th scope="col">Adresse</th>
+      <th scope="col">Description</th>
+      <th scope="col">Wifi</th>
       <th scope="col">Zip Code</th>
       <th scope="col">Nb de lit</th>
       <th scope="col">Prix €</th>
@@ -39,9 +41,11 @@
     <tr>
       <th scope="row"><% index %></th>
       <td><%= t.id %></td>
-      <td><%= t.name %></td>
+      <td><%= link_to (t.name), admin_hostel_path(t.id) %></td>
       <td><%= t.city %></td>
       <td><%= t.address %></td>
+      <td><%= t.description %></td>
+      <td><%= t.wifi %></td>
       <td><%= t.zip_code %></td>
       <td><%= t.bed_number %></td>
       <td><%= t.price %></td>

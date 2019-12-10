@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
 
 	if charge
 		Order.create(booking_id: @booking.id,final_price: @amount)
+		@booking.update(is_paid:true)
 		flash[:sucess] = "Ta commande a bien été prise en compte !"
 		redirect_to root_path
 	end

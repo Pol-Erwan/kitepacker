@@ -15,3 +15,26 @@
  *= require_tree .
  *= require simple_calendar
  */
+/* Contact page */
+ .h1-contact {margin-top: 160px;}
+ .row-contact {margin-top: 80px;margin-left: 250px; text-align:center; justify-content:center; align-items:center}
+ .col-contact {margin-left: 20px; margin-right: 20px;}
+ .card-contact {width: 20rem;}
+ .image-contact {width:68%; margin-right:auto; margin-left:auto;}
+ .map-container {padding-bottom:40px; border-radius:20px; background-color:white; opacity:96%; margin-top:80px; margin-bottom:80px;}
+ .map {border:0}
+
+/* Static page (options) */
+.fullblock-options {margin-top: 250px}
+.row-options {margin-bottom: 100px}
+.images-title{font-weight:bold}
+.image-options {width: 300px; height:300px}
+.description-option {text-align: justify;text-justify: inter-word;margin-top: 20px}
+.carousel-options {text-align: center; margin-bottom: 50px}
+.carousel-img-options {width: 600px; height:600px; display: inline-block;}
+
+/* Team page */ 
+.team-title {margin-top: 120px}
+.team-row {margin-left: 100px; justify-content:center; text-align:center}
+.team-col {margin-left: 20px; margin-right: 20px}
+.team-avatar {width:100%}

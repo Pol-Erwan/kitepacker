@@ -1,12 +1,12 @@
 
-<div class="container text-center" style= "margin-top: 120px;">
+<div class="container text-center margin-top">
   <h3 class="title">Bienvenue <!-- current_user.first_name --></h3>
   <p class="description">Que veux-tu faire ?</p>
 </div>
 <br><br><br>
 <div class="container">
-<div class="card-deck mx-auto" style="width: 30rem;">
-<div class="card text-center" style="">
+<div class="card-deck mx-auto width-30">
+<div class="card text-center">
   <div class="card-body">
     <h4 class="card-title">Users</h4>
     <br>
@@ -15,7 +15,7 @@
     </a>
   </div>
 </div>
-<div class="card text-center" style="">
+<div class="card text-center">
   <div class="card-body">
     <h4 class="card-title">Reservations</h4>
     <br>
@@ -26,18 +26,19 @@
 </div>
 </div>
 <br><br>
+
 <div class="card-deck mx-auto" style="width: 30rem;">
 
-<div class="card text-center" style="">
+<div class="card text-center">
   <div class="card-body">
     <h4 class="card-title">Hotels</h4>
     <br>
-    <a href="<%= admin_hostels_path %>" class="btn btn-danger btn-just-icon">
-      <i class="fas fa-arrow-left"></i>
+    <a href="<%= admin_hostels_path %>" class="btn btn-primary btn-just-icon">
+      <i class="fas fa-hotel"></i>
     </a>
   </div>
 </div>
-<div class="card text-center" style="">
+<div class="card text-center">
   <div class="card-body">
     <h4 class="card-title">Orders</h4>
     <br>
@@ -49,37 +50,30 @@
 </div>
 </div>
 <br><br><br>
-
 <!-- Calendar -->
+<div class="container">
+  <%= month_calendar events: @bookings do |date, bookings| %>
+    <h6 class="text-danger"><%= date %></h6>
+    <% bookings.each do |booking| %>
+      <div class="row my-2 mx-auto border " style="align-items:center; background-color:white; border-radius:4px; width:98%;">
+        <p class="col-12" style="font-size:14px;"><%= booking.user.first_name %> <%= booking.user.last_name %>
+        <p class="col-6"><i class="fas fa-bed"></i> <%= booking.bed_booked %></p>
+        <small class="text-muted col-6">
+        <% if booking.option_id == nil%>
+        <% else %>
+        <i class="far fa-check-circle text-danger pr-2"></i>
+         <%end%>
+         <% if booking.location_item == true %>
+         <i class="far fa-check-circle text-success pr-2"></i>
+         <% else %>
+         <%end%>
+         <% if booking.full_board == true %>
+         <i class="far fa-check-circle text-info"></i>
+         <% else %>
+         <%end %>
+        </small>
 
-<%= month_calendar events: @bookings do |date, bookings| %>
-  <%= date %>
-
-  <% bookings.each do |booking| %>
-    <div>
-      
-      Réservation nuit: <%= booking.user.first_name %>
-      <% if booking.option_id == nil%>
-     X
-     
-      <% else %>
-      leçon prise
-       <%end%>
-
-       <% if booking.location_item == true %>
-       location prise 
-       <% else %>
-       X
-       <%end%>
-
-
-       <% if booking.full_board == true %>
-       pension complète prise
-       <% else %>
-       X
-       <%end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
-
-
-<% end %>
+</div>

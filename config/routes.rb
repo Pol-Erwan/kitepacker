@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
 
   root 'hostels#index'
+
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :options, only: [:create]
   resources :bookings, only: [:new, :create, :show]
